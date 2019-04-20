@@ -32,17 +32,17 @@ input_img = Input(shape = (32, 32, 3))
 # Create Volumes for the Inception module
 #volume_1 = Conv2D(64, (1,1), padding='same', activation='relu')(input_img)
 
-volume_2 = Conv2D(128, (1,1), padding='same', activation='relu')(input_img)
-volume_2 = Conv2D(128, (3,3), padding='same', activation='relu')(volume_2)
+volume_2 = Conv2D(64, (1,1), padding='same', activation='relu')(input_img)
+volume_2 = Conv2D(32, (3,3), padding='same', activation='relu')(volume_2)
 
-volume_3 = Conv2D(128, (1,1), padding='same', activation='relu')(input_img)
-volume_3 = Conv2D(128, (5,5), padding='same', activation='relu')(volume_3)
+volume_3 = Conv2D(64, (1,1), padding='same', activation='relu')(input_img)
+volume_3 = Conv2D(32, (5,5), padding='same', activation='relu')(volume_3)
 
 #volume_4 = Conv2D(64, (1,1), padding='same', activation='relu')(input_img)
 #volume_4 = Conv2D(64, (7,7), padding='same', activation='relu')(volume_4)
 
 volume_5 = MaxPooling2D((3,3), strides=(1,1), padding='same')(input_img)
-volume_5 = Conv2D(128, (1,1), padding='same', activation='relu')(volume_5)
+volume_5 = Conv2D(32, (1,1), padding='same', activation='relu')(volume_5)
 
 # Concatenate all volumes of the Inception module
 inception_module = keras.layers.concatenate([volume_2, volume_3,
