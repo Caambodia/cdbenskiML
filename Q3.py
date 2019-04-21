@@ -58,7 +58,7 @@ volume_5 = Conv2D(64, (1,1), padding='same', activation='relu')(volume_5)
 volume_5 = Dropout(0.5)(volume_5)
 
 # Concatenate all volumes of the Inception module
-inception_module = keras.layers.concatenate([volume_1, volume_2a, volume_2b, volume_3a, volume_3b, volume_4a, volume_4b, volume_5], axis = 3)
+inception_module = keras.layers.concatenate([volume_1, volume_2a, volume_2b, volume_3a, volume_3b, volume_5], axis = 3)
 
 
 out = Flatten()(inception_module)
