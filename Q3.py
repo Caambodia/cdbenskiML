@@ -33,17 +33,20 @@ input_img = Input(shape = (32, 32, 3))
 volume_1 = Conv2D(32, (1,1), padding='same', activation='relu')(input_img)
 
 volume_2 = Conv2D(32, (1,1), padding='same', activation='relu')(input_img)
+volume_2 = Dropout(0.5)(volume_2)
 volume_2a = Conv2D(32, (3,1), padding='same', activation='relu')(volume_2)
 volume_2b = Conv2D(32, (1,3), padding='same', activation='relu')(volume_2)
 
 volume_3 = Conv2D(32, (1,1), padding='same', activation='relu')(input_img)
 volume_3 = Conv2D(32, (3,3), padding='same', activation='relu')(volume_3)
+volume_3 = Dropout(0.5)(volume_3)
 volume_3a = Conv2D(32, (3,1), padding='same', activation='relu')(volume_3)
 volume_3b = Conv2D(32, (1,3), padding='same', activation='relu')(volume_3)
 
 volume_4 = Conv2D(32, (1,1), padding='same', activation='relu')(input_img)
 volume_4 = Conv2D(32, (3,3), padding='same', activation='relu')(volume_4)
 volume_4 = Conv2D(32, (5,5), padding='same', activation='relu')(volume_4)
+volume_4 = Dropout(0.5)(volume_4)
 volume_4a = Conv2D(32, (3,1), padding='same', activation='relu')(volume_4)
 volume_4b = Conv2D(32, (1,3), padding='same', activation='relu')(volume_4)
 
