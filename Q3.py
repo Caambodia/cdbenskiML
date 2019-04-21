@@ -61,7 +61,7 @@ volume_d = Conv2D(64, (1,1), padding='same', activation='relu')(volume_d)
 inception_module_2 = keras.layers.concatenate([volume_a, volume_b, volume_c, volume_d], axis = 3)
 
 
-inception_module = (inception_module_1)(inception_module_2)
+inception_module = keras.layers.concatenate(inception_module_1, inception_module_2, axis = 3)
 
 output = Flatten()(inception_module)
 out    = Dense(10, activation='softmax')(output)
